@@ -1,0 +1,43 @@
+{
+  "name": "superagent-interface-promise",
+  "version": "1.0.0",
+  "description": "add an interface for promise",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "peerDependencies": {
+    "superagent": "*"
+  },
+  "devDependencies": {
+    "bluebird": "^2.9.30",
+    "chai": "^2.2.0",
+    "coffee-script": "^1.9.2",
+    "coffeelint": "^1.9.3",
+    "interfake": "^1.12.1",
+    "jshint": "^2.7.0",
+    "mocha": "^2.2.4",
+    "mocha-unfunk-reporter": "^0.4.0",
+    "superagent": "^1.2.0",
+    "underscore": "^1.8.3"
+  },
+  "scripts": {
+    "test-watch": "NODE_ENV=test node_modules/.bin/mocha -w --recursive --compilers coffee:coffee-script/register -R mocha-unfunk-reporter",
+    "test": "node_modules/.bin/coffeelint test/* & jshint *.json *.js & NODE_ENV=test node_modules/.bin/mocha --recursive --compilers coffee:coffee-script/register -R mocha-unfunk-reporter"
+  },
+  "engine": "node >= 0.12.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eyolas/superagent-interface-promise.git"
+  },
+  "keywords": [
+    "superagent",
+    "promise"
+  ],
+  "author": "David Touzet <dtouzet@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eyolas/superagent-interface-promise/issues"
+  },
+  "homepage": "https://github.com/eyolas/superagent-interface-promise#readme"
+}
