@@ -1,6 +1,6 @@
-[![Build Status](https://img.shields.io/travis/eyolas/superagent-es6-promise/master.svg?style=flat-square)](https://travis-ci.org/eyolas/superagent-es6-promise)
+[![Build Status](https://img.shields.io/travis/eyolas/superagent-interface-promise/master.svg?style=flat-square)](https://travis-ci.org/eyolas/superagent-interface-promise)
 
-superagent-es6-promise
+superagent-interface-promise
 ===========================
 
 
@@ -10,13 +10,13 @@ Add promise support to
 it was initially forked from [superagent-bluebird-promise](https://github.com/KyleAMathews/superagent-bluebird-promise).
 
 ## Install
-`npm install superagent-es6-promise`
+`npm install superagent-interface-promise`
 
 ## Usage
 Simply require this package instead of `superagent`. Then you can call `.then()` instead of `.end()` to get a promise for your requests.
 
 ```javascript
-var request = require('superagent-bluebird-promise');
+var request = require('superagent-interface-promise');
 
 request.get('/an-endpoint')
   .then(function(res) {
