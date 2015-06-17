@@ -33,14 +33,7 @@ Request.prototype.promise = function() {
 
   return new superagent.Promise(function(resolve, reject) {
       req.end(function(err, res) {
-        if (typeof res !== "undefined" && res.status >= 400) {
-          var msg = 'cannot ' + req.method + ' ' + req.url + ' (' + res.status + ')';
-          error = new SuperagentPromiseError(msg);
-          error.status = res.status;
-          error.body = res.body;
-          error.res = res;
-          reject(error);
-        } else if (err) {
+        if (err) {
           reject(new SuperagentPromiseError(err));
         } else {
           resolve(res);
