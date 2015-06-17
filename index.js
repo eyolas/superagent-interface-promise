@@ -34,7 +34,7 @@ Request.prototype.promise = function() {
   return new superagent.Promise(function(resolve, reject) {
       req.end(function(err, res) {
         if (err) {
-          error = new SuperagentPromiseError(msg);
+          error = new SuperagentPromiseError(err);
           if (res) {
             error.status = res.status;
             error.body = res.body;
