@@ -1,6 +1,31 @@
 // So you can `var request = require("superagent-es6-promise")`
 var superagent = module.exports = require("superagent");
-superagent.Promise = Promise;
+
+function getLocalPromise() {
+  var local;
+
+  if (typeof global !== 'undefined') {
+    local = global;
+  } else if (typeof self !== 'undefined') {
+    local = self;
+  } else {
+    try {
+      local = Function('return this')();
+    } catch (e) {
+      return null;
+    }
+  }
+
+  var P = local.Promise;
+  if (!isPromise(P)) {
+    return null;
+  }
+
+  return P;
+}
+
+
+superagent.Promise = getLocalPromise();
 var Request = superagent.Request;
 
 // Create custom error type.
@@ -12,6 +37,11 @@ var SuperagentPromiseError = superagent.SuperagentPromiseError = function (messa
 
 SuperagentPromiseError.prototype = new Error();
 SuperagentPromiseError.prototype.constructor = SuperagentPromiseError;
+
+
+function isPromise(obj) {
+  return obj && 'function' == typeof obj.all;
+}
 
 /**
  * @namespace utils
@@ -28,6 +58,10 @@ SuperagentPromiseError.prototype.constructor = SuperagentPromiseError;
  * @return {Promise}
  */
 Request.prototype.promise = function() {
+  if (!isPromise(superagent.Promise)) {
+    throw new Error('Promise no exist');
+  }
+
   var req = this;
   var error;
 
