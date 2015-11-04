@@ -36,3 +36,11 @@ request.get('/an-endpoint').promise()
 An error is thrown for all HTTP errors and responses that have a response code of 400 or above.
 
 The `error` parameter always has a key `error` and for 4xx and 5xx responses, will also have a `status` and `res` key.
+
+## Promise
+You can set the promise library
+```javascript
+var request = require('superagent-interface-promise');
+var bluebird = require('bluebird');
+request.Promise = bluebird;
+```

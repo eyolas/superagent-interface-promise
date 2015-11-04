@@ -1,4 +1,4 @@
-// So you can `var request = require("superagent-es6-promise")`
+// So you can `var request = require("superagent-interface-promise")`
 var superagent = module.exports = require("superagent");
 
 function getLocalPromise() {
